@@ -6,22 +6,22 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:54:25 by tigerber          #+#    #+#             */
-/*   Updated: 2022/02/25 13:48:33 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:45:21 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
+#include "PhoneBook.class.hpp"
 #include <iostream>
 #include <stdio.h>
 
 int main() {
 
-	Phonebook repertoire;
+	PhoneBook repertoire;
 	std::string cmd;
 	int i = 0;
 	int index = 0;
 
-	repertoire.menu_phonebook();
+	repertoire.menu_PhoneBook();
 
 	while(1) {
 
@@ -34,7 +34,7 @@ int main() {
 				i = 0;
 			if (i < 8)
 			{
-				repertoire.contacts[i].add_in_phonebook(i);
+				repertoire.contacts[i].add_in_PhoneBook(i);
 				i += 1;
 			}
 		}
@@ -42,7 +42,8 @@ int main() {
 		{
 			if (i == 0)
 				std::cout << "Empty contacts list, use [ADD] to add contacts !" << std::endl;
-			else {
+			else 
+			{
 				repertoire.Search_contacts();
 				index = repertoire.Look_for_contacts(i);
 				if (index)

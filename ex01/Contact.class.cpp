@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:48:54 by tigerber          #+#    #+#             */
-/*   Updated: 2022/02/25 13:50:15 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:37:00 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Contact::Contact( void ) {
 
 	this->index = 0;
 	return ;
-
 }
 
 Contact::~Contact( void ) {
@@ -24,24 +23,28 @@ Contact::~Contact( void ) {
 	return ;
 }
 
-void Contact::add_in_phonebook( int i ) {
+void Contact::secure_ask(std::string ask, std::string *data)
+{
+	while (1)
+	{
+		std::cout << ask;
+		std::getline(std::cin, *data);
+		if (*data == "")
+			std::cout << "retry !" << std::endl;
+		else
+			break ;
+	}
+}
+
+void Contact::add_in_PhoneBook( int i ) {
 
 	this->index = i + 1;
 
-	std::cout << "Enter first name     : ";
-	std::getline(std::cin, this->first_name);
-
-	std::cout << "Enter last name      : ";
-	std::getline(std::cin, this->last_name);
-
-	std::cout << "Enter nickname name  : ";
-	std::getline(std::cin, this->nickname);
-
-	std::cout << "Enter phone number   : ";
-	std::getline(std::cin, this->phone_number);
-
-	std::cout << "Enter Darkest secret : ";
-	std::getline(std::cin, this->darkest_secret);
+	Contact::secure_ask("Enter first name     : ", &this->_first_name);
+	Contact::secure_ask("Enter last name      : ", &this->_last_name);
+	Contact::secure_ask("Enter _nickname name  : ", &this->_nickname);
+	Contact::secure_ask("Enter phone number   : ", &this->_phone_number);
+	Contact::secure_ask("Enter Darkest secret : ", &this->_darkest_secret);
 
 	std::cout << "New contact added !" << std::endl;
 	return ;
@@ -54,9 +57,9 @@ void Contact::print_index( void ) {
 		int i = 0;
 		int size[3];
 		std::string data[3];
-		data[0] = this->first_name;
-		data[1] = this->last_name;
-		data[2] = this->nickname;
+		data[0] = this->_first_name;
+		data[1] = this->_last_name;
+		data[2] = this->_nickname;
 		size[0] = data[0].size();
 		size[1] = data[1].size();
 		size[2] = data[2].size();
@@ -83,10 +86,10 @@ void Contact::print_index( void ) {
 void Contact::print_contact(void) {
 
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
-	std::cout << "First Name     : " << this->first_name << std::endl;
-	std::cout << "Last Name      : " << this->last_name << std::endl;
-	std::cout << "Nickname       : " << this->nickname << std::endl;
-	std::cout << "Phone Number   : " << this->phone_number << std::endl;
-	std::cout << "Darkest Secret : " << this->darkest_secret << std::endl;
+	std::cout << "First Name     : " << this->_first_name << std::endl;
+	std::cout << "Last Name      : " << this->_last_name << std::endl;
+	std::cout << "_nickname       : " << this->_nickname << std::endl;
+	std::cout << "Phone Number   : " << this->_phone_number << std::endl;
+	std::cout << "Darkest Secret : " << this->_darkest_secret << std::endl;
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
 }

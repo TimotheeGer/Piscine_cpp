@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/25 10:53:04 by tigerber          #+#    #+#              #
-#    Updated: 2022/02/25 15:11:31 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/01 15:37:00 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = contacts
 
 SRCS = 	main.cpp				\
 		Contact.class.cpp 		\
-		Phonebook.class.cpp
+		PhoneBook.class.cpp
 
 CXX = c++
 
@@ -26,7 +26,7 @@ OBJ = $(SRCS:%.cpp=%.o)
 
 #LIBS =
 
-ADDED = echo "\033[92mPhonebook build ⚙️ \033[0m"
+ADDED = echo "\033[92mPhoneBook build ⚙️ \033[0m"
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME) && $(ADDED)

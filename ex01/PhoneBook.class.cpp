@@ -6,24 +6,24 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:00:36 by tigerber          #+#    #+#             */
-/*   Updated: 2022/02/25 15:13:05 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:37:00 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
+#include "PhoneBook.class.hpp"
 #include <stdio.h>
 
-Phonebook::Phonebook(void) {
+PhoneBook::PhoneBook(void) {
 
 	return ;
 }
 
-Phonebook::~Phonebook( void ) {
+PhoneBook::~PhoneBook( void ) {
 
 	return ;
 }
 
-void Phonebook::menu_phonebook(void) {
+void PhoneBook::menu_PhoneBook(void) {
 	
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
 	std::cout << "| /$$$$$$$  /$$                                     /$$$$$$$                      /$$       |" << std::endl;
@@ -39,7 +39,7 @@ void Phonebook::menu_phonebook(void) {
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
 }
 
-void Phonebook::Search_contacts(void) {
+void PhoneBook::Search_contacts(void) {
 
 	int i = 0;
 
@@ -51,7 +51,7 @@ void Phonebook::Search_contacts(void) {
 	return ;
 }
 
-int Phonebook::cpp_atoi(std::string str) {
+int PhoneBook::cpp_atoi(std::string str) {
 	
 	long int	i;
 	long int	res;
@@ -78,7 +78,7 @@ int Phonebook::cpp_atoi(std::string str) {
 	return (sign * res);
 }
 
-int Phonebook::Look_for_contacts ( int i ) {
+int PhoneBook::Look_for_contacts ( int i ) {
 
 	std::string val;
 	std::cout << "Enter index to find contacts : ";
