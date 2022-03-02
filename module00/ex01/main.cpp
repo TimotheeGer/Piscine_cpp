@@ -6,11 +6,11 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:54:25 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/01 15:45:21 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:11:38 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <stdio.h>
 

@@ -1,7 +1,7 @@
-#ifndef PhoneBook_CLASS_HPP
-# define PhoneBook_CLASS_HPP
+#ifndef PhoneBook_HPP
+# define PhoneBook_HPP
 
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include <cstdlib>
 

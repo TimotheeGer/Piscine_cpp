@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:48:54 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/01 15:37:00 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:22:06 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact( void ) {
 
@@ -42,7 +42,7 @@ void Contact::add_in_PhoneBook( int i ) {
 
 	Contact::secure_ask("Enter first name     : ", &this->_first_name);
 	Contact::secure_ask("Enter last name      : ", &this->_last_name);
-	Contact::secure_ask("Enter _nickname name  : ", &this->_nickname);
+	Contact::secure_ask("Enter nickname name  : ", &this->_nickname);
 	Contact::secure_ask("Enter phone number   : ", &this->_phone_number);
 	Contact::secure_ask("Enter Darkest secret : ", &this->_darkest_secret);
 
@@ -88,7 +88,7 @@ void Contact::print_contact(void) {
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
 	std::cout << "First Name     : " << this->_first_name << std::endl;
 	std::cout << "Last Name      : " << this->_last_name << std::endl;
-	std::cout << "_nickname       : " << this->_nickname << std::endl;
+	std::cout << "Nickname       : " << this->_nickname << std::endl;
 	std::cout << "Phone Number   : " << this->_phone_number << std::endl;
 	std::cout << "Darkest Secret : " << this->_darkest_secret << std::endl;
 	std::cout << "*-------------------------------------------------------------------------------------------*" << std::endl;
