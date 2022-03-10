@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 12:11:56 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/10 17:12:33 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/10 14:59:23 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/10 15:59:38 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main( void ) {
+#include "ClapTrap.hpp"
+
+class FragTrap : public virtual ClapTrap {
+
+	public: 
+
+		FragTrap(void);
+		FragTrap(std::string name);
+		FragTrap(FragTrap const &src);
+		~FragTrap(void);
+
+		FragTrap &operator=(FragTrap const &rhs);
+		
+		void attack(const std::string &target);
+		void highFivesGuys(void);
 	
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+	private:
 
-	c = b;
+		
+};
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return (0);
-}
+#endif
