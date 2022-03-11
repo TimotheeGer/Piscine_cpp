@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 12:29:38 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/03 16:40:47 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/04 11:26:43 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ Fixed::Fixed( float const float_num ) {
 
 	(void)float_num;
 	std::cout << "Float constructor called" << std::endl;
-	this->_rawBits = roundf(float_num * (1 << Fixed::_stockBits));	
+	this->_rawBits = roundf(float_num * (1 << Fixed::_stockBits));
+	std::cout << "raw F = " << this->_rawBits << std::endl;
 	return ;
 }
 
