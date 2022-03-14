@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:45:39 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/09 18:51:54 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:48:45 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ std::string ClapTrap::get_name(void) {
 }
 
 void ClapTrap::get_status(void) {
-
-			  
+		  
 	std::cout << "------------------------------------" << std::endl 
 			  << this->_name << std::endl
 			  << "hit points = " << _hit_points << std::endl

@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/03 12:23:35 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/14 13:27:30 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : $(EXEC)
 $(EXEC) : $(OBJ)
 	@$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJ)
 	@printf "\e[1;32m--------------------------------------\n" 
-	@printf "\e[1;32m./$@ successfully build 💻 ✅\e[0m\n" 
+	@printf "\e[1;32m./$@ successfully build       💻 ✅\e[0m\n" 
 	@printf "\e[1;32m--------------------------------------\n" 
 
 %.o : %.cpp

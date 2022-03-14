@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:45:45 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/09 18:51:34 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:49:46 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ class ClapTrap {
 		
 		ClapTrap &operator=(ClapTrap const &rhs);
 
-		std::string get_name(void);
-		void get_status(void);
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		
+		std::string get_name(void);
+		void get_status(void);
 
 	private:
 

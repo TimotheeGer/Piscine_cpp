@@ -19,7 +19,7 @@ int main()
 	tim.get_status(); 
 	
 	tim.beRepaired(50);
-	
+
 	tim.get_status();
 	return (0);
 }
