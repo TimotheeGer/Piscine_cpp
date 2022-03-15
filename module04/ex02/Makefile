@@ -6,15 +6,15 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/11 19:38:22 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/15 21:24:22 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
-EXEC 	= Animal
+EXEC 	= AAnimal
 
-SRC 	=	Animal.cpp \
+SRC 	=	AAnimal.cpp \
 			Dog.cpp \
 			Cat.cpp \
 			Brain.cpp \

@@ -6,12 +6,12 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/10 15:26:23 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/14 21:01:10 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX 	= c++
-CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS 	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 EXEC 	= DiamondTrap
 
 SRC 	=	ScavTrap.cpp \
@@ -27,7 +27,7 @@ all : $(EXEC)
 $(EXEC) : $(OBJ)
 	@$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJ)
 	@printf "\e[1;32m--------------------------------------\n" 
-	@printf "\e[1;32m./$@ successfully build 💻 ✅\e[0m\n" 
+	@printf "\e[1;32m./$@ successfully build       💻 ✅\e[0m\n" 
 	@printf "\e[1;32m--------------------------------------\n" 
 
 %.o : %.cpp

@@ -19,6 +19,7 @@ class Brain {
 	protected:
 
 		std::string ideas[100];
+		
 	private:
 
 

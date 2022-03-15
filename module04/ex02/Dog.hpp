@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/15 21:23:16 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 21:23:17 by tigerber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DOG_HPP
 #define DOG_HPP
 
@@ -16,6 +28,8 @@ class Dog : public AAnimal {
 
 		Dog &operator=(Dog const &rhs);
 		virtual void makeSound(void) const;
+		virtual std::string const Dog::getType(void) const;
+
 
 	protected:
 

@@ -1,4 +1,16 @@
-#include "Animal.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/15 21:24:06 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 21:24:07 by tigerber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -8,7 +20,7 @@ int main()
 
 	{
 		int i = 0;
-		const Animal *pet[10];
+		const AAnimal *pet[10];
 
 		while (i < 10)
 		{

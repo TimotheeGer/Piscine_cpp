@@ -27,6 +27,7 @@ Cat::~Cat(void) {
 Cat &Cat::operator=(Cat const &rhs) {
 	
 	this->type = rhs.type;
+	this->cerv = rhs.cerv;
 	return (*this);
 }
 
