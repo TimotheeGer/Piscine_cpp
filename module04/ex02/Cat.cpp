@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:23:00 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:23:01 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:44:08 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Cat::makeSound(void) const {
 	return ;
 }
 
-std::string const Cat::getType(void) const {
+std::string const Cat::getType2(void) const {
 
 	return (this->type);
 }

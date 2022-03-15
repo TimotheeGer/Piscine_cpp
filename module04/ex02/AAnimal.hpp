@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:23:07 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:23:12 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:43:09 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class AAnimal {
 
 		AAnimal &operator=(AAnimal const &rhs);
 		virtual void makeSound(void) const = 0;
-		virtual std::string const getType(void) const = 0;
+		virtual std::string const getType(void) const;
+		virtual std::string const getType2(void) const = 0;
 
 	protected:
 

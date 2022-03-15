@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:23:13 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:23:14 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:44:18 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Dog::makeSound(void) const{
 	return ;
 }
 
-std::string const Dog::getType(void) const {
+std::string const Dog::getType2(void) const {
 
 	return (this->type);
 }

@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:24:06 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:24:07 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:47:21 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,29 @@ int main()
 {
 
 	{
-		int i = 0;
-		const AAnimal *pet[10];
+		std::cout << std::endl << "----------------test1------------------" << std::endl << std::endl;
+		const AAnimal *pet[4];
 
-		while (i < 10)
+		for (int i = 0; i < 4;)
 		{
+			std::cout << "*instantion dog* " << i + 1 << std::endl;
 			pet[i++] = new Dog();
+			std::cout << "*instantion cat* " << i + 1 << std::endl;
 			pet[i++] = new Cat();
 		}
-		i = 0;
-		while (i < 10)
+		std::cout << std::endl;
+		for (int i = 0; i < 4;)
 		{
+			pet[i++]->makeSound();
+			pet[i++]->makeSound();
+		}
+		std::cout << std::endl;
+		for (int i = 0; i < 4;)
+		{
+			std::cout << "*delete* " << i + 1 << std::endl;
 			delete pet[i];
 			i++;
 		}
-
-
 	}
 
 	// {

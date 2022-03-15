@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:23:53 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:23:54 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:30:24 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 class Brain {
 
@@ -27,7 +27,6 @@ class Brain {
 
 		Brain &operator=(Brain const &rhs);
 		
-
 	protected:
 
 		std::string ideas[100];

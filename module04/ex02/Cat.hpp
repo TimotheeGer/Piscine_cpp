@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:23:03 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 21:23:04 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:45:24 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Cat : public AAnimal {
 
 		Cat &operator=(Cat const &rhs);
 		virtual void makeSound(void) const;
-		virtual std::string const Cat::getType(void) const;
+		virtual std::string const getType2(void) const;
 
 	protected:
 
