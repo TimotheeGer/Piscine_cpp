@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 16:29:51 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 16:44:06 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/15 16:29:59 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 16:48:40 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
 // ************************************************************************** //
 //                         Constructeur/Destructeur                           //
 // ************************************************************************** //
 
-Dog::Dog(void) {
+WrongAnimal::WrongAnimal(void) {
 
-	Animal::type = "Dog";
-
-	std::cout << "Constructor Dog Default call" << std::endl;
+	std::cout << "Constructor WrongAnimal Default call" << std::endl;
 	return ;
 }
 
-Dog::Dog(Dog const &src) {
+WrongAnimal::WrongAnimal(WrongAnimal const &src) {
 
-	std::cout << "Constructor Dog copy call" << std::endl;
+	std::cout << "Constructor WrongAnimal copy call" << std::endl;
 	*this = src;
 	return ;
 }
 
-Dog::~Dog(void) {
+WrongAnimal::~WrongAnimal(void) {
 
-	std::cout << "Destructor Dog Default call" << std::endl;
+	std::cout << "Destructor WrongAnimal Default call" << std::endl;
 	return ;
 }
 
@@ -41,7 +39,7 @@ Dog::~Dog(void) {
 //                         Operator d'assignation                             //
 // ************************************************************************** //
 
-Dog &Dog::operator=(Dog const &rhs) {
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs) {
 	
 	this->type = rhs.type;
 	return (*this);
@@ -51,8 +49,13 @@ Dog &Dog::operator=(Dog const &rhs) {
 //                         Fonctions Membres                                  //
 // ************************************************************************** //
 
-void Dog::makeSound(void) const{
+void WrongAnimal::makeSound(void) const {
 
-	std::cout << "WAF WAF..!" << std::endl;
+	std::cout << "ZZZzzzzz..!" << std::endl;
 	return ;
+}
+
+std::string const WrongAnimal::getType(void) const {
+
+	return (this->type);
 }

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 15:25:45 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 15:28:57 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/15 16:29:49 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 17:11:11 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main() {
+#include <iostream>
+#include <string>
+#include "WrongAnimal.hpp"
 
-	FragTrap tim("tim");
-	FragTrap theo = FragTrap("theo");
-	ScavTrap laura("laura");
+class WrongCat : public WrongAnimal {
 
-	tim.highFivesGuys();
-	tim.attack("theo");
-	tim.takeDamage(10);
-	tim.get_status();
+	public:
 
-	theo.highFivesGuys();
-	theo.beRepaired(50);
-	theo.get_status();
+		WrongCat(void);
+		WrongCat(WrongCat const &src);
+		virtual ~WrongCat(void);
 
-	laura.attack("tim");
-	laura.guardGate();
-	return (0);
-}
+		WrongCat &operator=(WrongCat const &rhs);
+		void makeSound(void) const;
+
+	protected:
+
+	private:
+
+
+};
+
+#endif

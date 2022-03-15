@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:58:12 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/10 15:05:56 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:37:38 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 FragTrap::FragTrap(void) {
 	
+	this->_name = "no_name";
 	this->_hit_points = 100;
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
-	std::cout << "Constructor FragTrap has been called" << std::endl;
+	std::cout << "Constructor FragTrap " << this->_name << " has been called" << std::endl;
 	return ;
 }
 
@@ -76,7 +77,7 @@ void FragTrap::attack(const std::string &target) {
 		this->_energy_points--;
 	}
 	else
-		std::cout << "Cannot attack" << std::endl;
+		std::cout << "FragTrap " <<  this->_name << "Cannot attack" << std::endl;
 	return ;
 }
 
@@ -85,5 +86,3 @@ void FragTrap::highFivesGuys(void) {
 	std::cout << "FragTrap " << this->_name << " high five ?" << std::endl;
 	return ;
 }		
-
-

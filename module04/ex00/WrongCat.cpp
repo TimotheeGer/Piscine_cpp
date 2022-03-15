@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 16:29:51 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 16:44:06 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/15 16:29:46 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 16:53:40 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 // ************************************************************************** //
 //                         Constructeur/Destructeur                           //
 // ************************************************************************** //
 
-Dog::Dog(void) {
+WrongCat::WrongCat(void) {
 
-	Animal::type = "Dog";
+	WrongAnimal::type = "WrongCat";
 
-	std::cout << "Constructor Dog Default call" << std::endl;
+	std::cout << "Constructor WrongCat Default call" << std::endl;
 	return ;
 }
 
-Dog::Dog(Dog const &src) {
+WrongCat::WrongCat(WrongCat const &src) {
 
-	std::cout << "Constructor Dog copy call" << std::endl;
+	std::cout << "Constructor WrongCat copy call" << std::endl;
 	*this = src;
 	return ;
 }
 
-Dog::~Dog(void) {
+WrongCat::~WrongCat(void) {
 
-	std::cout << "Destructor Dog Default call" << std::endl;
+	std::cout << "Destructor WrongCat Default call" << std::endl;
 	return ;
 }
 
@@ -41,7 +41,7 @@ Dog::~Dog(void) {
 //                         Operator d'assignation                             //
 // ************************************************************************** //
 
-Dog &Dog::operator=(Dog const &rhs) {
+WrongCat &WrongCat::operator=(WrongCat const &rhs) {
 	
 	this->type = rhs.type;
 	return (*this);
@@ -51,8 +51,8 @@ Dog &Dog::operator=(Dog const &rhs) {
 //                         Fonctions Membres                                  //
 // ************************************************************************** //
 
-void Dog::makeSound(void) const{
+void WrongCat::makeSound(void) const {
 
-	std::cout << "WAF WAF..!" << std::endl;
+	std::cout << "MIAOUU..!" << std::endl;
 	return ;
 }

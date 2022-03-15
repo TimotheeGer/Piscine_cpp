@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/15 16:29:56 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 17:11:22 by tigerber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
@@ -10,7 +22,7 @@ class Animal {
 
 		Animal(void);
 		Animal(Animal const &src);
-		~Animal(void);
+		virtual ~Animal(void);
 
 		Animal &operator=(Animal const &rhs);
 		virtual void makeSound(void) const;

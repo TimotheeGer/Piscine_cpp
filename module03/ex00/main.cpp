@@ -14,6 +14,8 @@ int main()
 	std::cout << "timBis = " << timBis.get_name() << std::endl;
 
 	theo.attack("tom");
+	theo.takeDamage(50);
+	theo.beRepaired(10);
 	
 	theo.get_status(); 
 	tim.get_status(); 

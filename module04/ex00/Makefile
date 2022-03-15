@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/11 18:57:02 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/15 16:54:19 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@ CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 EXEC 	= Animal
 
 SRC 	=	Animal.cpp \
+			WrongAnimal.cpp \
 			Dog.cpp \
 			Cat.cpp \
+			WrongCat.cpp \
 			main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

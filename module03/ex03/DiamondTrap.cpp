@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:10:30 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/10 16:53:06 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 14:38:03 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 // ************************************************************************** //
 
 DiamondTrap::DiamondTrap(void) {
-
+	
+	this->_name = "no_name";
+	ClapTrap::_name = "no_name_clap_name";
 	this->_hit_points = FragTrap::_hit_points;
 	this->_energy_points = ScavTrap::_energy_points;
 	this->_attack_damage = FragTrap::_attack_damage;
-	std::cout << "Constructor DiamondTrap has been called" << std::endl;
+	std::cout << "Constructor DiamondTrap " << this->_name << " has been called" << std::endl;
 	return ;
 }
 

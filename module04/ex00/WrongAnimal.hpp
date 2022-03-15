@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 15:25:45 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 15:28:57 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/15 16:29:56 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/15 17:13:41 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
-int main() {
+#include <iostream>
+#include <string>
 
-	FragTrap tim("tim");
-	FragTrap theo = FragTrap("theo");
-	ScavTrap laura("laura");
+class WrongAnimal {
 
-	tim.highFivesGuys();
-	tim.attack("theo");
-	tim.takeDamage(10);
-	tim.get_status();
+	public:
 
-	theo.highFivesGuys();
-	theo.beRepaired(50);
-	theo.get_status();
+		WrongAnimal(void);
+		WrongAnimal(WrongAnimal const &src);
+		virtual ~WrongAnimal(void);
 
-	laura.attack("tim");
-	laura.guardGate();
-	return (0);
-}
+		WrongAnimal &operator=(WrongAnimal const &rhs);
+		void makeSound(void) const;
+		std::string const getType(void) const;
+
+	protected:
+
+		std::string type;
+
+	private:
+
+
+};
+
+#endif

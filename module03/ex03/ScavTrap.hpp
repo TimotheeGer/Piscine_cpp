@@ -6,12 +6,9 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:02:06 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/10 16:10:05 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:34:27 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -30,8 +27,5 @@ class ScavTrap : public virtual ClapTrap {
 		void guardGate(void);		
 	
 	private:
-
 		
 };
-
-#endif
