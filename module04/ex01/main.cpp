@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/16 16:51:48 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/16 16:51:49 by tigerber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -9,7 +21,7 @@ int main()
 		std::cout << std::endl << "----------------test0------------------" << std::endl << std::endl;
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
-		
+		std::cout << std::endl;
 		delete j;
 		delete i;
 	}
