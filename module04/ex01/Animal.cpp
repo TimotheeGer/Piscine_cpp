@@ -36,3 +36,19 @@ std::string const Animal::getType(void) const {
 
 	return (this->type);
 }
+
+void Animal::add_ideas(std::string ideas) {
+
+	(void)ideas;
+	return ;
+}
+
+void Animal::get_all_ideas(void) const {
+	
+	return ;
+}
+
+void Animal::clear_all_ideas(void) const {
+	
+	return ;
+}

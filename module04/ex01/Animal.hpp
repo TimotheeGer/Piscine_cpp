@@ -15,6 +15,9 @@ class Animal {
 		Animal &operator=(Animal const &rhs);
 		virtual void makeSound(void) const;
 		std::string const getType(void) const;
+		virtual void add_ideas(std::string ideas);
+		virtual void get_all_ideas(void) const;
+		virtual void clear_all_ideas(void) const;
 
 	protected:
 
