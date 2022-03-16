@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:29:59 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/15 16:31:38 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/16 11:45:02 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 Animal::Animal(void) {
 
+	this->type = "no_type";
 	std::cout << "Constructor Animal Default call" << std::endl;
 	return ;
 }
