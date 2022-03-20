@@ -6,15 +6,16 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/18 19:16:37 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/18 21:56:35 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-EXEC 	= Bureaucrat
+EXEC 	= Form
 
-SRC 	=	Bureaucrat.cpp \
+SRC 	=	Bureaucrat.cpp	\
+			Form.cpp		\
 			main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

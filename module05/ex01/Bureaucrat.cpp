@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:10:00 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 19:23:27 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/18 21:58:37 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Bureaucrat::Bureaucrat( void ) : _name("no_name"), _grade(150) {
 
-	std::cout << "Constructor Bureaucratv" << this->_name << " has been called" << std::endl;  
+	std::cout << "Constructor Bureaucrat " << this->_name << " has been called" << std::endl;  
 	return ;
 }
 
@@ -28,7 +28,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
 		throw Bureaucrat::GradeTooHighException ();
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException ();
-	std::cout << "Constructor Bureaucratv" << this->_name << " has been called" << std::endl;  
+	std::cout << "Constructor Bureaucrat " << this->_name << " has been called" << std::endl;  
 	return ;
 }
 
@@ -93,6 +93,16 @@ void Bureaucrat::decrem( void ) {
 		throw Bureaucrat::GradeTooHighException ();
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException ();
+	return ;
+}
+
+void Bureaucrat::signForm(Form const &form) const {
+
+	if (form.get_sign())
+		std::cout << this->getName() << " signed " << form.get_name() << std::endl;
+	else
+		std::cout << this->getName() << " couldn’t sign " << form.get_name() << " because grade "
+				  << this->getGrade() << "it's too low" << std::endl;
 	return ;
 }
 

@@ -4,7 +4,7 @@
 
 int main () {
 
-	Bureaucrat greg();
+	Bureaucrat greg;
 
 	try
 	{

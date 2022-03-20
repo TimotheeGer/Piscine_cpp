@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 08:19:32 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 11:12:19 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:05:53 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ Character::~Character( void ) {
 
 	for (int i = 0; i < 4; i++)
 	{
-		// if (this->item[i])
-		// 	delete this->item[i];
+		if (this->item[i] != NULL)
+			this->item[i] = NULL;
 	}
 	std::cout << "Destructor " << this->_name << " Character" << std::endl;
 	return ;
