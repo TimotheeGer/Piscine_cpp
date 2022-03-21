@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:43:02 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 16:43:13 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/21 23:16:15 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // ************************************************************************** //
 //                               Constructor                             	  //
 // ************************************************************************** //
 
-Form::Form(void)
+AForm::AForm(void)
 : _name("no_name"), _sign(false), _requierSign(1), _requierExec(1) {
 
 	std::cout << "Construtor Form default called" << std::endl;
 	return ;
 }
 
-Form::Form(std::string name, int requierSign, int requierExec) 
+AForm::AForm(std::string name, int requierSign, int requierExec) 
 : _name(name), _sign(false), _requierSign(requierSign), _requierExec(requierExec) {
 
 	if (this->_requierSign < 1 || this->_requierExec < 1)
@@ -34,7 +34,7 @@ Form::Form(std::string name, int requierSign, int requierExec)
 	return ;
 }
 
-Form::Form(Form const &rhs) 
+AForm::AForm(AForm const &rhs) 
 : _name(rhs.get_name()), _sign(rhs.get_sign()), _requierSign(rhs.get_requierSign()), _requierExec(rhs.get_requierExec()) {
 
 	*this = rhs;
@@ -42,7 +42,7 @@ Form::Form(Form const &rhs)
 	return ;
 }
 
-Form::~Form(void) {
+AForm::~AForm(void) {
 	
 	std::cout << "Destrutor Form called" << std::endl;
 	return ;
@@ -52,62 +52,77 @@ Form::~Form(void) {
 //                               Surcharge Operator                           //
 // ************************************************************************** //
 
-Form &Form::operator=(Form const &rhs) {
+AForm &AForm::operator=(AForm const &rhs) {
 
 	this->_sign = rhs.get_sign();
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, Form const &rhs) {
+std::ostream &operator<<(std::ostream &out, AForm const &rhs) {
 	
-	out	<< "Form " << rhs.get_name() 
+	out	<< rhs.get_name() 
 		<< " requier grade [" << rhs.get_requierSign() << "] for Sign" 
 		<< " and requier grade [" << rhs.get_requierExec() << "] for Execute";
 	if (rhs.get_sign())
-		std::cout << ", this Form is Signed by [" << rhs.get_nameSign() << "]";
+		std::cout << ", this AForm is Signed by [" << rhs.get_nameSign() << "]";
 	else
-		std::cout << ", this Form is not Signed";
+		std::cout << ", this AForm is not Signed";
 	return out;	
 }
 
-
 // ************************************************************************** //
-//                               Member Geter Fonction                        //
+//                          Member Accessor Fonction                          //
 // ************************************************************************** //
 
-	std::string Form::get_name(void) const {
+	std::string AForm::get_name(void) const {
 
 		return this->_name;
 	}
 	
-	std::string Form::get_nameSign(void) const {
+	std::string AForm::get_nameSign(void) const {
 
 		return this->_nameAsSign;
 	}
 
-	int Form::get_requierSign(void) const {
+	std::string AForm::get_target(void) const {
+
+		return this->_target;
+	}
+
+	int AForm::get_requierSign(void) const {
 
 		return this->_requierSign;
 	}
 	
-	int Form::get_requierExec(void) const {
+	int AForm::get_requierExec(void) const {
 
 		return this->_requierExec;
 	}
 	
-	bool Form::get_sign(void) const {
+	bool AForm::get_sign(void) const {
 
 		return this->_sign;
 	}
 
+	void AForm::set_sign(bool b) {
+		
+		this->_sign = b;
+		return ;
+	}
+	void AForm::set_nameAsSign(std::string name) {
+
+		this->_nameAsSign = name;
+		return ;
+	}
+		
 // ************************************************************************** //
 //                               Member Fonction                              //
 // ************************************************************************** //
 
-	void Form::beSigned(Bureaucrat const &staff) {
+	void AForm::beSigned(Bureaucrat const &staff) {
 		
-		if (staff.getGrade() >this->get_requierSign())
-			throw Form::GradeTooLowException ();
+		if (staff.getGrade() > this->get_requierSign())
+			throw AForm::GradeTooLowException ();
 		else
 		{
 			this->_sign = true;	
@@ -116,16 +131,30 @@ std::ostream &operator<<(std::ostream &out, Form const &rhs) {
 		return ;
 	}
 
+	bool AForm::execute(Bureaucrat const & executor) const {
+
+		if (this->get_sign() == false)
+			throw AForm::FormSignedException();
+		if (executor.getGrade() > this->get_requierExec())
+			throw AForm::GradeTooLowException();
+		return (true);
+	}
+
 // ************************************************************************** //
 //                               Fonction Exception                           //
 // ************************************************************************** //
 
-const char* Form::GradeTooHighException::what() const throw() {
+const char* AForm::GradeTooHighException::what() const throw() {
 
-	return ("* Grade Form too high *");
+	return ("* Form Gradetoo high *");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("* Grade too Form low *");
+	return ("* Form Grade too low *");
+}
+
+const char* AForm::FormSignedException::what() const throw()
+{
+	return ("* Form is not Signed *");
 }
