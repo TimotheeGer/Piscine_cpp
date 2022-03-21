@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 08:25:24 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 08:25:25 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:39:53 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Cure : public AMateria {
 		Cure &operator=(Cure const &rhs);
 
 		virtual Cure* clone() const;
+		void use(ICharacter &target);
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 08:26:23 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 11:02:27 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:50:43 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,12 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs) {
 
 bool MateriaSource::checkType(std::string type) {
 
-	if (type.compare("ice") == 0) {
+	if (type.compare("ice") == 0)
 		return (true);
-	}
 	else if (type.compare("cure") == 0)
 		return (true);
-	// else if (type.compare("fire"))
-		// return (true);
-	// else if (type.compare("wind"))
-		// return (true);
+	else if (type.compare("fire") == 0)
+		return (true);
 	else
 	{
 		std::cout << "This Materia [" << type << "] does not exist" << std::endl;

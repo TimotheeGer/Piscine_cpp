@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Fire.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 08:25:32 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 15:34:58 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/21 15:12:29 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/21 15:39:33 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef FIRE_HPP
+#define FIRE_HPP
 
 #include <iostream>
 #include <string>
 #include "AMateria.hpp"
 #include "Character.hpp"
 
-class Ice : public AMateria {
+class Fire : public AMateria {
 
 	public:
 
-		Ice(void);
-		Ice(std::string const & type);
-		Ice(Ice const &src);
-		~Ice(void);
+		Fire(void);
+		Fire(std::string const & type);
+		Fire(Fire const &src);
+		~Fire(void);
 
-		Ice &operator=(Ice const &rhs);
+		Fire &operator=(Fire const &rhs);
 
-		virtual Ice* clone() const;
+		Fire* clone() const;
 		void use(ICharacter &target);
 
 };

@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/18 10:03:47 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/21 15:57:09 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC 	=	main.cpp \
 			AMateria.cpp \
 			Character.cpp \
 			Ice.cpp \
+			Fire.cpp \
 			Cure.cpp \
 			MateriaSource.cpp
 

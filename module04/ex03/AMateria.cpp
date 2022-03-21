@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 08:17:37 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 10:08:51 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/21 15:25:11 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,13 @@ std::string const &AMateria::getType() const {
 	return (this->type);
 }
 
-// AMateria *AMateria::clone() const {
-
-// 	AMateria *clone = new AMateria();
-// 	return (clone);
-// }
-
 void AMateria::use(ICharacter &target) {
 
 	if (this->type.compare("ice"))
 		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	else if (this->type.compare("cure"))
 		std::cout <<  "* heals "<< target.getName() << "’s wounds *" << std::endl;
-	// else if (this->type.compare("fire"))
-
-	// else if (this->type.compare("wind"))
-
+	else if (this->type.compare("fire"))
+		std::cout << "* throw a fireball at " << target.getName() << " *" << std::endl;
+	return ;
 }

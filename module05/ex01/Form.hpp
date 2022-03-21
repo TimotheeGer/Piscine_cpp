@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:42:11 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/18 22:04:50 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/20 14:11:20 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Form {
 	public:
 
 		Form(void);
-		Form(Form const &src);
+		Form(Form const &src);w
 		Form(std::string name, int requierSign, int requierExec);
 		~Form(void);
 

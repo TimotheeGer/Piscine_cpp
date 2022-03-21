@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Fire.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 08:25:27 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 15:42:22 by tigerber         ###   ########.fr       */
+/*   Created: 2022/03/21 15:13:16 by tigerber          #+#    #+#             */
+/*   Updated: 2022/03/21 15:50:06 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+
+#include "Fire.hpp"
 #include "Character.hpp"
 
 // ************************************************************************** //
 //                               Constructor                             	  //
 // ************************************************************************** //
 
-Cure::Cure(void) {
+Fire::Fire(void) {
 
-	AMateria::type = "cure";
-	std::cout << "Constructor Cure Default call" << std::endl;
+	AMateria::type = "fire";
+	std::cout << "Constructor Fire Default call" << std::endl;
 	return ;
 }
 
-Cure::Cure(Cure const &src) {
+Fire::Fire(Fire const &src) {
 
-	std::cout << "Constructor Cure copy call" << std::endl;
+	std::cout << "Constructor Fire copy call" << std::endl;
 	*this = src;
 	return ;
 }
 
-Cure::Cure(std::string const & type) {
+
+Fire::Fire(std::string const & type) {
 
 	AMateria::type = type;
-	std::cout << "Constructor Cure copy with strings call" << std::endl;
+	std::cout << "Constructor Fire copy with strings call" << std::endl;
 	return ;
 }
 
-Cure::~Cure(void) {
+Fire::~Fire(void) {
 
-	std::cout << "Destructor Cure Default call" << std::endl;
+	std::cout << "Destructor Fire Default call" << std::endl;
 	return ;
 }
 
@@ -48,7 +50,7 @@ Cure::~Cure(void) {
 //                               Assignement operator                      	  //
 // ************************************************************************** //
 
-Cure &Cure::operator=(Cure const &rhs) {
+Fire &Fire::operator=(Fire const &rhs) {
 
 	AMateria::type = rhs.type;
 	return (*this);
@@ -58,14 +60,14 @@ Cure &Cure::operator=(Cure const &rhs) {
 //                               Member functions                             //
 // ************************************************************************** //
 
-Cure *Cure::clone() const {
+Fire *Fire::clone() const {
 
-	Cure *clone = new Cure();
+	Fire *clone = new Fire();
 	return (clone);
 }
 
-void Cure::use(ICharacter &target) {
+void Fire::use(ICharacter &target) {
 
-	std::cout << "* heals "<< target.getName() << "’s wounds *" << std::endl;
+	std::cout << "* throw a fireball at " << target.getName() << " *" << std::endl;
 	return ;
 }
