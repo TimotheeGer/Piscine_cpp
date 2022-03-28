@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:43:02 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 23:16:15 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 16:01:38 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@
 
 AForm::AForm(void)
 : _name("no_name"), _sign(false), _requierSign(1), _requierExec(1) {
-
+	
+	this->_nameAsSign = "no_name";
+	this->_sign = false;
 	std::cout << "Construtor Form default called" << std::endl;
 	return ;
 }
 
 AForm::AForm(std::string name, int requierSign, int requierExec) 
 : _name(name), _sign(false), _requierSign(requierSign), _requierExec(requierExec) {
+	
+	this->_nameAsSign = "no_name";
+	this->_sign = false;
 
 	if (this->_requierSign < 1 || this->_requierExec < 1)
 		throw Bureaucrat::GradeTooHighException ();
@@ -114,6 +119,13 @@ std::ostream &operator<<(std::ostream &out, AForm const &rhs) {
 		this->_nameAsSign = name;
 		return ;
 	}
+
+	void AForm::set_target(std::string target) {
+
+		this->_target = target;
+		return ;
+	}
+
 		
 // ************************************************************************** //
 //                               Member Fonction                              //
@@ -131,14 +143,14 @@ std::ostream &operator<<(std::ostream &out, AForm const &rhs) {
 		return ;
 	}
 
-	bool AForm::execute(Bureaucrat const & executor) const {
+	// bool AForm::execute(Bureaucrat const & executor) const {
 
-		if (this->get_sign() == false)
-			throw AForm::FormSignedException();
-		if (executor.getGrade() > this->get_requierExec())
-			throw AForm::GradeTooLowException();
-		return (true);
-	}
+	// 	if (this->get_sign() == false)
+	// 		throw AForm::FormSignedException();
+	// 	if (executor.getGrade() > this->get_requierExec())
+	// 		throw AForm::GradeTooLowException();
+	// 	return (true);
+	// }
 
 // ************************************************************************** //
 //                               Fonction Exception                           //

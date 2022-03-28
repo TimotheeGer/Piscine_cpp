@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:10:00 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 16:41:03 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:45:25 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,27 @@ void Bureaucrat::decrem( void ) {
 	return ;
 }
 
-void Bureaucrat::signForm(Form const &form) const {
+void Bureaucrat::signForm(AForm const &form) const {
 
 	if (form.get_sign())
 		std::cout << this->getName() << " signed " << form.get_name() << std::endl;
 	else
 		std::cout << this->getName() << " couldn’t sign " << form.get_name() << " because grade "
 				  << this->getGrade() << "it's too low" << std::endl;
+	return ;
+}
+
+void Bureaucrat::executeForm(AForm const &form) const {
+
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << this->getName() << " because " << e.what() << std::endl;
+	}
+	std::cout << "Bureaucrat " << this->getName() << " execute " << form.get_name() << std::endl; 
 	return ;
 }
 

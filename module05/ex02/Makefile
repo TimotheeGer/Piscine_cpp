@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/03/18 21:56:35 by tigerber         ###   ########.fr        #
+#    Updated: 2022/03/28 17:00:24 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ CXXFLAGS 	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 EXEC 	= Form
 
 SRC 	=	Bureaucrat.cpp	\
-			Form.cpp		\
+			AForm.cpp		\
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 			main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

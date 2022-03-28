@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:42:11 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 16:38:47 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:28:18 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ class Form {
 
 	private:
 
-		const std::string  _name;
-		std::string  _nameAsSign;
-		bool _sign;
-		const int _requierSign;
-		const int _requierExec;
+		const std::string 	_name;
+		std::string 		_nameAsSign;
+		bool				_sign;
+		const int			_requierSign;
+		const int			_requierExec;
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &rhs);

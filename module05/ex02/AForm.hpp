@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:42:11 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 22:45:41 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:21:05 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,13 @@ class AForm {
 		void set_sign(bool b);
 		void set_nameAsSign(std::string name);
 		void set_target(std::string target);
+		virtual void beSigned(Bureaucrat const &staff);
+		virtual void execute(Bureaucrat const & executor) const = 0; 
 
-		virtual bool execute(Bureaucrat const & executor) const; 
-	
 	protected:
 
-		virtual void beSigned(Bureaucrat const &staff) = 0;
 
-		class GradeTooHighException  : public std::exception , public Bureaucrat {
+		class GradeTooHighException  : public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};

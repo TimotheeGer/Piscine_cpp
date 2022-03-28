@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:10:00 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/21 16:41:03 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 13:34:08 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ void Bureaucrat::signForm(Form const &form) const {
 	if (form.get_sign())
 		std::cout << this->getName() << " signed " << form.get_name() << std::endl;
 	else
-		std::cout << this->getName() << " couldn’t sign " << form.get_name() << " because grade "
-				  << this->getGrade() << "it's too low" << std::endl;
+		std::cout << this->getName() << " couldn’t sign " << form.get_name() 
+				  << " because no one brought him" << std::endl;
 	return ;
 }
 

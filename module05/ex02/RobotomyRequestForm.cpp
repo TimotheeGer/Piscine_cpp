@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:43:02 by tigerber          #+#    #+#             */
-/*   Updated: 2022/03/28 16:00:56 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/03/28 16:19:18 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 // ************************************************************************** //
 //                               Constructor                             	  //
 // ************************************************************************** //
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("no_name", 145, 137) {
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("no_name", 72, 45) {
 
-	std::cout << "Construtor ShrubberyCreationForm default called" << std::endl;
+	std::cout << "Construtor RobotomyRequestForm default called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45) {
 	
 	this->set_target(target);
-	std::cout << "Construtor ShrubberyCreationForm default called" << std::endl;
+	std::cout << "Construtor RobotomyRequestForm default called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &rhs) 
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &rhs) 
 : AForm(rhs.get_name(), rhs.get_requierSign(), rhs.get_requierExec()) {
 
 	*this = rhs;
-	std::cout << "Construtor ShrubberyCreationForm by copy default called" << std::endl;
+	std::cout << "Construtor RobotomyRequestForm by copy default called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void) {
+RobotomyRequestForm::~RobotomyRequestForm(void) {
 	
-	std::cout << "Destrutor ShrubberyCreationForm called" << std::endl;
+	std::cout << "Destrutor RobotomyRequestForm called" << std::endl;
 	return ;
 }
 
@@ -47,7 +47,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 //                               Surcharge Operator                           //
 // ************************************************************************** //
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs) {
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs) {
 
 	this->set_sign(rhs.get_sign());
 	this->set_nameAsSign(rhs.get_nameSign());
@@ -55,15 +55,15 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm const &rhs) {
+std::ostream &operator<<(std::ostream &out, RobotomyRequestForm const &rhs) {
 	
-	out	<< "ShrubberyCreationForm " << rhs.get_name() 
+	out	<< "RobotomyRequestForm " << rhs.get_name() 
 		<< " requier grade [" << rhs.get_requierSign() << "] for Sign" 
 		<< " and requier grade [" << rhs.get_requierExec() << "] for Execute";
 	if (rhs.get_sign())
-		std::cout << ", this ShrubberyCreationForm is Signed by [" << rhs.get_nameSign() << "]";
+		std::cout << ", this RobotomyRequestForm is Signed by [" << rhs.get_nameSign() << "]";
 	else
-		std::cout << ", this ShrubberyCreationForm is not Signed";
+		std::cout << ", this RobotomyRequestForm is not Signed";
 	return out;	
 }
 
@@ -71,7 +71,7 @@ std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm const &rhs) {
 //                               Member Fonction                              //
 // ************************************************************************** //
 
-bool ShrubberyCreationForm::checkExecute(Bureaucrat const & executor) const {
+bool RobotomyRequestForm::checkExecute(Bureaucrat const & executor) const {
 	
 	if (this->get_sign() == false)
 		throw AForm::FormSignedException();
@@ -80,24 +80,19 @@ bool ShrubberyCreationForm::checkExecute(Bureaucrat const & executor) const {
 	return (true);
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+	
+	srand(time(NULL));
+	int random = rand() % 2;
 	
 	if (this->checkExecute(executor))
 	{
-		std::string line;
-		std::string file_name = this->get_target() + "_shrubbery";
-		std::ifstream infile("shrubbery.txt");
-		std::ofstream outfile(file_name.c_str());
-
-		if (infile.is_open() && outfile.is_open())
+		if (random == 0)
 		{
-			std::getline(infile, line, '\0');
-			outfile << line;
-			std::cout << executor.getName() << " executed " << this->get_name() << std::endl;
-			std::cout << file_name << " file created by " << executor.getName() << std::endl;
+			std::cout << "Brrrrrrrrrrrrrrrrbrrrrr!!!!! " << this->get_target() << " has been Robotize by " << executor.getName() << std::endl;
 		}
 		else
-			std::cout << "error file" << std::endl;	
+			std::cout << executor.getName() << " failed the operation of Robotomy" << std::endl;	
 	}
 	else
 		std::cout << "Error " << executor.getName() << " couldn't execute Form " << this->get_name();
