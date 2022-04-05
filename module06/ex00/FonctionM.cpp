@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:06:18 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/01 13:14:38 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:31:46 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,26 @@ bool	Convert::CheckIsCharacter() {
 
 bool 	Convert::checkIsInt() {
 
-	int i;
-
-	i = ft_stoi(this->_value);
-	if (i == 0 && this->stoi == 1)
+	int i = 0;
+	
+	if (this->_value[i] == '-' || this->_value[i] == '+')
+		i++;
+	while (this->_value[i] >= '0' && this->_value[i] <= '9')
+		i++;
+	if (i != this->_value.length() || this->_value.length() > 11)
 	{
+		this->is_int = -1;
 		return false;
 	}
+	i = ft_stoi(this->_value);
+	if (i == 0 && this->is_int == -1)
+		return false;
 	else
 	{
 		this->_int = static_cast<int>(i);
 		this->is_int = 1;
 		return true;
 	}
-	return false;
-}
-
-bool 	is_digit(char c) {
-
-	if (c >= '0' && c <= '9')
-		return true;
 	return false;
 }
 
@@ -91,6 +91,25 @@ bool 	Convert::CheckIsFloat_Double() {
 	return false;
 }
 
+void Convert::ValueConvertor() {
+
+	if (this->CheckIsCharacter())
+		this->convert_char();
+	if (this->checkIsInt())
+		convert_int();
+	if (this->CheckIsFloat_Double() && this->is_float == 1)
+		convert_float();
+	if (this->CheckIsFloat_Double() && this->is_double == 1)
+		convert_double();
+	else
+		std::cout << "impossible convertion" << std::endl;
+	return ;
+}
+
+// ************************************************************************** //
+//                         Member Fonction psedo literal                   	  //
+// ************************************************************************** //
+
 void	Convert::conv_str() {
 
 	this->char_str = "impossible";
@@ -100,40 +119,7 @@ void	Convert::conv_str() {
 	return ;
 }
 
-void	Convert::convert_char() {
-
-	this->_int = static_cast<int>(this->_char);
-	this->_float = static_cast<float>(this->_char);
-	this->_double = static_cast<double>(this->_char);
-	return ;
-}
-
-void	Convert::convert_int() {
-
-	this->_char = static_cast<char>(this->_int);
-	this->_float = static_cast<float>(this->_int);
-	this->_double = static_cast<double>(this->_int);
-	return ;
-}
-
-void	Convert::convert_float() {
-
-	this->_char = static_cast<char>(this->_float);
-	this->_int = static_cast<int>(this->_float);
-	this->_double = static_cast<double>(this->_float);
-	return ;
-}
-
-void	Convert::convert_double() {
-
-	this->_char = static_cast<char>(this->_double);
-	this->_int = static_cast<int>(this->_double);
-	this->_float = static_cast<float>(this->_double);
-	return ;
-}
-
 bool 	Convert::checkIsNanOrInf() {
-
 
 	if (this->_value.compare("nan") == 0 || this->_value.compare("nanf") == 0)
 	{
@@ -153,69 +139,9 @@ bool 	Convert::checkIsNanOrInf() {
 	return false;
 }
 
-long Convert::ft_stoi( std::string s ) {
-
-    long i;
-    std::istringstream(s) >> i;
-	if (i > 2147483647 || i < -2147483648)
-	{
-		this->stoi = 1;
-		i = 0;
-		return i;
-	}
-	return i;
-}
-
-void Convert::ValueConvertor() {
-
-	if (this->CheckIsCharacter())
-	{
-		this->convert_char();
-	}
-	if (this->checkIsInt())
-	{
-		convert_int();
-	}
-	if (this->CheckIsFloat_Double() && this->is_float == 1)
-	{
-		convert_float();
-	}
-	if (this->CheckIsFloat_Double() && this->is_double == 1)
-	{
-		convert_double();
-	}
-
-	return ;
-}
-
-void Convert::print_function() {
-
-	std::cout << "char: " << this->char_str << std::endl;
-	std::cout << "int: " << this->int_str << std::endl;
-	std::cout << "float: " << this->float_str << std::endl;
-	std::cout << "double: " << this->double_str << std::endl;
-	return ;
-}
-
-void Convert::print_function_two() {
-
-	if (this->_int < 32 || this->_int > 127)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: '" << this->_char << "'" << std::endl;
-	std::cout << "int: " << this->_int << std::endl;
-	std::cout << "float: " << this->_float;
-	if (this->is_int == 1)
-		std::cout << ".0f" << std::endl;
-	else
-		std::cout << std::endl;
-	std::cout << "double: " << this->_double;
-	if (this->is_int == 1)
-		std::cout << ".0" << std::endl;
-	else
-		std::cout << std::endl;
-	return ;
-}
+// ************************************************************************** //
+//                               Member Fonction base                   	  //
+// ************************************************************************** //
 
 void Convert::checkWhichConvert() {
 
@@ -234,17 +160,4 @@ void Convert::checkWhichConvert() {
 		print_function_two();
 	}
 	return ;
-}
-
-
-int	Convert::check_sign( std::string str, long int *i, int sign )
-{
-	if (str[*i] == '-')
-	{
-		sign *= -1;
-		(*i)++;
-	}
-	else if (str[*i] == '+')
-		(*i)++;
-	return (sign);
 }

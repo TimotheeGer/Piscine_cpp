@@ -41,7 +41,11 @@ class Convert {
 		void print_function_two();
 
 		int ft_atoi( std::string str );
-		int	check_sign( std::string str, long int *i, int sign );
+
+		class InputOverflow : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 	
 	private:
 		
@@ -62,10 +66,12 @@ class Convert {
 		int				is_float;
 		int				is_double;
 
-		int 			stoi;
+		int 			stoi_error;
 
 		std::string 	_value;
 
 };
+
+bool 	is_digit(char c);
 
 #endif
