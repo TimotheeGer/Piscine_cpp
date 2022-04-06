@@ -17,13 +17,13 @@ class Convert {
 
 		Convert &operator=(Convert const &rhs);
 		
-		char const getChar();
-		int const getInt();
-		float const getFloat();
-		double const getDouble();
+		char getChar();
+		int getInt();
+		float getFloat();
+		double getDouble();
 		
 		long ft_stoi( std::string s );
-		void ValueConvertor();
+		bool ValueConvertor();
 		void checkWhichConvert();
 		
 		void convert_char();
@@ -35,10 +35,11 @@ class Convert {
 		bool checkIsInt();
 		bool checkIsNanOrInf();
 		bool CheckIsCharacter();
-		bool CheckIsFloat_Double();
+		bool CheckIsFloat();
+		bool CheckIsDouble();
 
-		void print_function();
-		void print_function_two();
+		void printPseudo();
+		void printConv();
 
 		int ft_atoi( std::string str );
 

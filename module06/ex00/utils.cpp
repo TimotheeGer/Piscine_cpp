@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 23:07:22 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 00:30:42 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:33:34 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,23 @@ bool 	is_digit(char c) {
 	return false;
 }
 
-long Convert::ft_stoi( std::string s ) {
+// long Convert::ft_stoi( std::string s ) {
 
-    long i;
-    std::istringstream(s) >> i;
-	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
-	{
-		this->is_int = -1;
-		return 0;
-	}
-	return i;
-}
+//     long i;
+//     std::istringstream(s) >> i;
+// 	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+// 	{
+// 		this->is_int = -1;
+// 		return 0;
+// 	}
+// 	return i;
+// }
 
 // ************************************************************************** //
 //                               Member Fonction print                   	  //
 // ************************************************************************** //
 
-void Convert::print_function() {
+void Convert::printPseudo() {
 
 	std::cout << "char: " << this->char_str << std::endl;
 	std::cout << "int: " << this->int_str << std::endl;
@@ -48,7 +48,7 @@ void Convert::print_function() {
 	return ;
 }
 
-void Convert::print_function_two() {
+void Convert::printConv() {
 
 	if (this->_int < 32 || this->_int > 127)
 		std::cout << "char: Non displayable" << std::endl;
@@ -60,14 +60,14 @@ void Convert::print_function_two() {
 	else
 		std::cout << "int: " << this->_int << std::endl;
 	
-	if (this->is_int == 1)
-		std::cout << "float: " << this->_float << ".0f" << std::endl;
-	else
-		std::cout << "float: " << this->_float << std::endl;
+	// if (this->is_int == 1)
+	// 	std::cout << "float: " << this->_float << ".0f" << std::endl;
+	// else
+		std::cout << "float: " << this->_float << "f" << std::endl;
 	
-	if (this->is_int == 1)
-		std::cout << "double: " << this->_double << ".0" << std::endl;
-	else
+	// if (this->is_int == 1)
+	// 	std::cout << "double: " << this->_double << ".0" << std::endl;
+	// else
 		std::cout << "double: " << this->_double << std::endl;
 	return ;
 }

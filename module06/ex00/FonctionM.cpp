@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:06:18 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 00:31:46 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:33:56 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,76 +34,97 @@ bool	Convert::CheckIsCharacter() {
 
 bool 	Convert::checkIsInt() {
 
-	int i = 0;
+	unsigned long i = 0;
+	long num = 0;
 	
 	if (this->_value[i] == '-' || this->_value[i] == '+')
 		i++;
 	while (this->_value[i] >= '0' && this->_value[i] <= '9')
 		i++;
-	if (i != this->_value.length() || this->_value.length() > 11)
-	{
-		this->is_int = -1;
+	if (i != this->_value.length()){
+		std::cout << "FALSE " << std::endl;
 		return false;
 	}
-	i = ft_stoi(this->_value);
-	if (i == 0 && this->is_int == -1)
+	num = std::stoi(this->_value);
+	if (this->is_int == -1)
 		return false;
 	else
 	{
-		this->_int = static_cast<int>(i);
+		std::cout << "TRUE I " << std::endl;
+
+		this->_int = static_cast<int>(num);
 		this->is_int = 1;
 		return true;
 	}
 	return false;
 }
 
-bool 	Convert::CheckIsFloat_Double() {
+bool 	Convert::CheckIsFloat() {
 
-	std::string val = this->_value;
-	int len = val.length();
-	int i = 0;
-	int point = 0;
+	unsigned long i = 0;
 
-	if (val[len] == 'f')
+	if (this->_value[i] == '-' || this->_value[i] == '+')
+		i++;
+	while (this->_value[i] >= '0' && this->_value[i] <= '9')
+		i++;
+	if (this->_value[i++] != '.')
+		return false;
+	while (this->_value[i] >= '0' && this->_value[i] <= '9')
+		i++;
+	if (this->_value[i] != 'f' || ++i != this->_value.length())
 	{
-		len -= 1;
-		this->is_float = 1;
-	}
-	while (val[len])
-	{
-		if (val[len] == '.')
-			point++;
-		if (!is_digit(val[len]))
-			return false;
-		len--;
-	}
-	if (point == 1)
-	{
-		if (point == 1 && this->is_float == 1)
-		{
-			this->_float = static_cast<float>(std::atof(val.c_str()));
-			return true;
-		}
-		this->is_double = 1;
-		this->_double = static_cast<double>(std::atof(val.c_str()));
-		return true;
-	}
-	return false;
+		std::cout << "FALSE F1" << std::endl;
+		return false;
+	}	
+	
+	this->_float = std::stof(this->_value);
+	std::cout << "FLOAT = " << this->_float << std::endl;
+	
+	return true;
 }
 
-void Convert::ValueConvertor() {
+bool 	Convert::CheckIsDouble() {
+
+	unsigned long i = 0;
+
+	if (this->_value[i] == '-' || this->_value[i] == '+')
+		i++;
+	while (this->_value[i] >= '0' && this->_value[i] <= '9')
+		i++;
+	if (this->_value[i++] != '.')
+		return (false);
+	while (this->_value[i] >= '0' && this->_value[i] <= '9')
+		i++;
+	if (i != this->_value.length())
+	{
+		
+		std::cout << "FALSE D " << std::endl;
+		return false;
+	}
+	
+	this->_double = std::stod(this->_value);
+	std::cout << "DOUBLE = " << this->_double << std::endl;
+	
+	return true;
+}
+
+bool Convert::ValueConvertor() {
 
 	if (this->CheckIsCharacter())
 		this->convert_char();
-	if (this->checkIsInt())
-		convert_int();
-	if (this->CheckIsFloat_Double() && this->is_float == 1)
-		convert_float();
-	if (this->CheckIsFloat_Double() && this->is_double == 1)
-		convert_double();
+	else if (this->checkIsInt())
+		this->convert_int();
+	else if (this->CheckIsFloat())
+		this->convert_float();
+	else if (this->CheckIsDouble())
+		this->convert_double();	
 	else
+	{
 		std::cout << "impossible convertion" << std::endl;
-	return ;
+		return false;
+	}
+	
+	return true;
 }
 
 // ************************************************************************** //
@@ -152,12 +173,12 @@ void Convert::checkWhichConvert() {
 	}
 	if (checkIsNanOrInf())
 	{
-		print_function();
+		printPseudo();
 	}
 	else
 	{
-		ValueConvertor();
-		print_function_two();
+		if (ValueConvertor())
+			printConv();
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:01:13 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/01 13:09:30 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:08:00 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,26 @@
 
 Convert::Convert( void ) {
 
+	this->_char = 0;
+	this->_int = 0;
+	this->_float = 0;
+	this->_double = 0;
 	return ;
 }
 
 Convert::Convert( std::string conv ) : _value(conv) {
-
+	
+	this->_char = 0;
+	this->_int = 0;
+	this->_float = 0;
+	this->_double = 0;
 	return ;
 }
 
 
 Convert::Convert( Convert const &src ) {
-
+	
+	*this = src;
 	return ;
 }
 
@@ -55,22 +64,22 @@ Convert &Convert::operator=( Convert const &rhs ) {
 //                               Member Fonction accesor                   	  //
 // ************************************************************************** //
 
-char const Convert::getChar() {
+char Convert::getChar() {
 
 	 return this->_char;
 }
 
-int const Convert::getInt() {
+int Convert::getInt() {
 
 	 return this->_int;
 }
 
-float const Convert::getFloat() {
+float Convert::getFloat() {
 
 	 return this->_float;
 }
 
-double const Convert::getDouble() {
+double Convert::getDouble() {
 
 	 return this->_double;
 }

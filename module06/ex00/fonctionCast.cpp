@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 23:05:16 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/05 23:06:00 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:33:12 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	Convert::convert_char() {
 }
 
 void	Convert::convert_int() {
-
+	
+	std::cout << "INT = " << this->_int << std::endl;
+	std::cout << "FLOAT = " << this->_float << std::endl;
+	std::cout << "CAST = " << static_cast<float>(this->_int);
 	this->_char = static_cast<char>(this->_int);
 	this->_float = static_cast<float>(this->_int);
 	this->_double = static_cast<double>(this->_int);
