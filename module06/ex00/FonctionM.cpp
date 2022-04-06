@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:06:18 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 17:33:56 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:50:47 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ bool 	Convert::checkIsInt() {
 		i++;
 	while (this->_value[i] >= '0' && this->_value[i] <= '9')
 		i++;
-	if (i != this->_value.length()){
-		std::cout << "FALSE " << std::endl;
+	if (i != this->_value.length())
+			return false;
+	num = ft_stoi(this->_value);
+	if (this->is_int == -1)
+	{
+		std::cout << "overflow " << std::endl;	
 		return false;
 	}
-	num = std::stoi(this->_value);
-	if (this->is_int == -1)
-		return false;
 	else
 	{
 		std::cout << "TRUE I " << std::endl;

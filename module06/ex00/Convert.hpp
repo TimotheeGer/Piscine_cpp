@@ -17,29 +17,30 @@ class Convert {
 
 		Convert &operator=(Convert const &rhs);
 		
-		char getChar();
-		int getInt();
-		float getFloat();
-		double getDouble();
+		char getChar(void);
+		int getInt(void);
+		float getFloat(void);
+		double getDouble(void);
 		
 		long ft_stoi( std::string s );
-		bool ValueConvertor();
-		void checkWhichConvert();
+		bool ValueConvertor(void);
+		void checkWhichConvert(void);
 		
-		void convert_char();
-		void convert_int();
-		void convert_float();
-		void convert_double();
+		void convert_char(void);
+		void convert_int(void);
+		void convert_float(void);
+		void convert_double(void);
 
-		void conv_str();
-		bool checkIsInt();
-		bool checkIsNanOrInf();
-		bool CheckIsCharacter();
-		bool CheckIsFloat();
-		bool CheckIsDouble();
+		void conv_str(void);
+		bool checkIsInt(void);
+		bool checkIsNanOrInf(void);
+		bool CheckIsCharacter(void);
+		bool CheckIsFloat(void);
+		bool CheckIsDouble(void);
+		void checkOverflow(void);
 
-		void printPseudo();
-		void printConv();
+		void printPseudo(void);
+		void printConv(void);
 
 		int ft_atoi( std::string str );
 
@@ -72,7 +73,5 @@ class Convert {
 		std::string 	_value;
 
 };
-
-bool 	is_digit(char c);
 
 #endif

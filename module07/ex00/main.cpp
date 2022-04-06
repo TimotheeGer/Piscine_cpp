@@ -41,7 +41,7 @@ int main( void ) {
 	std::cout << "min( a, b ) = " << ::min( fa, fb ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( fa, fb ) << std::endl;
 
-	std::cout << std::endl << "-----------------char-----------------------" << std::endl << std::endl;
+	std::cout << std::endl << "-----------------char-----------------------" << std::endl << std::endl;1
 	char ca = 'a';
 	char cb = 'b';
 

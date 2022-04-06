@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 23:07:22 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 17:33:34 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/06 18:26:48 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,28 @@ bool 	is_digit(char c) {
 	return false;
 }
 
-// long Convert::ft_stoi( std::string s ) {
+long Convert::ft_stoi( std::string s ) {
 
-//     long i;
-//     std::istringstream(s) >> i;
-// 	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
-// 	{
-// 		this->is_int = -1;
-// 		return 0;
-// 	}
-// 	return i;
-// }
+    long i;
+    std::istringstream(s) >> i;
+	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+	{
+		this->is_int = -1;
+		return 0;
+	}
+	return i;
+}
+
+void Convert::checkOverflow(void) {
+
+	if (this->_double > std::numeric_limits<char>::max() || this->_double < std::numeric_limits<char>::min())
+		this->is_char = -1;
+	if (this->_double > std::numeric_limits<int>::max() || this->_double < std::numeric_limits<int>::min())
+		this->is_int = -1;
+	if (this->_double > std::numeric_limits<float>::max() || this->_double < -std::numeric_limits<float>::max())
+		this->is_float = -1;
+	return ;
+}
 
 // ************************************************************************** //
 //                               Member Fonction print                   	  //
@@ -58,17 +69,14 @@ void Convert::printConv() {
 	if (this->is_int == -1)
 		std::cout << "int: error overflow" << std::endl;
 	else
-		std::cout << "int: " << this->_int << std::endl;
+		std::cout << "int: " << std::to_string(this->_int) << std::endl;
 	
-	// if (this->is_int == 1)
-	// 	std::cout << "float: " << this->_float << ".0f" << std::endl;
-	// else
-		std::cout << "float: " << this->_float << "f" << std::endl;
+	if (this->is_float == -1)
+		std::cout << "float: error overflow" << std::endl;
+	else
+		std::cout << "float: " << std::to_string(this->_float) << "f" << std::endl;
 	
-	// if (this->is_int == 1)
-	// 	std::cout << "double: " << this->_double << ".0" << std::endl;
-	// else
-		std::cout << "double: " << this->_double << std::endl;
+	std::cout << "double: " << std::to_string(this->_double) << std::endl;
 	return ;
 }
 
