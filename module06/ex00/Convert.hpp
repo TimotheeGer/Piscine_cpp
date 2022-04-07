@@ -43,11 +43,6 @@ class Convert {
 		void printConv(void);
 
 		int ft_atoi( std::string str );
-
-		class InputOverflow : public std::exception {
-			public:
-				virtual const char* what() const throw();
-		};
 	
 	private:
 		

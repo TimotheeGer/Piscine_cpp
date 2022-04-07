@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 23:07:22 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 18:26:48 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:29:36 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,13 @@ void Convert::printPseudo() {
 }
 
 void Convert::printConv() {
-
-	if (this->_int < 32 || this->_int > 127)
-		std::cout << "char: Non displayable" << std::endl;
+	
+	this->checkOverflow();
+	
+	if (this->is_char == -1)
+		std::cout << "char: error overflow" << std::endl;
+	else if ((this->_int < 32 || this->_int >= 127))
+		std::cout << "char: 'Non displayable'" << std::endl;
 	else
 		std::cout << "char: '" << this->_char << "'" << std::endl;
 	
@@ -78,13 +82,4 @@ void Convert::printConv() {
 	
 	std::cout << "double: " << std::to_string(this->_double) << std::endl;
 	return ;
-}
-
-// ************************************************************************** //
-//                               Member exception                       	  //
-// ************************************************************************** //
-
-const char* Convert::InputOverflow::what() const throw()
-{
-	return ("input value overflow, conversion inpossible");
 }

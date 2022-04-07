@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:06:18 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/06 17:50:47 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:29:13 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ bool	Convert::CheckIsCharacter() {
 
 	if (this->_value.length() == 1)
 	{
-		if (this->_value[0] >= 32 && this->_value[0] <= 126)
+		if ((this->_value[0] >= 32 && this->_value[0] <= 47) ||
+			(this->_value[0] >= 58 && this->_value[0] <= 127))
 		{
 			this->_char = static_cast<char>(this->_value[0]);
 			this->is_char = 1;
@@ -51,8 +52,6 @@ bool 	Convert::checkIsInt() {
 	}
 	else
 	{
-		std::cout << "TRUE I " << std::endl;
-
 		this->_int = static_cast<int>(num);
 		this->is_int = 1;
 		return true;
@@ -73,14 +72,8 @@ bool 	Convert::CheckIsFloat() {
 	while (this->_value[i] >= '0' && this->_value[i] <= '9')
 		i++;
 	if (this->_value[i] != 'f' || ++i != this->_value.length())
-	{
-		std::cout << "FALSE F1" << std::endl;
 		return false;
-	}	
-	
 	this->_float = std::stof(this->_value);
-	std::cout << "FLOAT = " << this->_float << std::endl;
-	
 	return true;
 }
 
@@ -97,15 +90,8 @@ bool 	Convert::CheckIsDouble() {
 	while (this->_value[i] >= '0' && this->_value[i] <= '9')
 		i++;
 	if (i != this->_value.length())
-	{
-		
-		std::cout << "FALSE D " << std::endl;
 		return false;
-	}
-	
 	this->_double = std::stod(this->_value);
-	std::cout << "DOUBLE = " << this->_double << std::endl;
-	
 	return true;
 }
 
@@ -124,7 +110,6 @@ bool Convert::ValueConvertor() {
 		std::cout << "impossible convertion" << std::endl;
 		return false;
 	}
-	
 	return true;
 }
 
