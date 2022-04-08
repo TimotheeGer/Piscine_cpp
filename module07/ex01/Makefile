@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/04/08 16:35:07 by tigerber         ###   ########.fr        #
+#    Updated: 2022/04/08 16:50:43 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXX 	= c++
 
 CXXFLAGS 	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
-EXEC 	= whatever
+EXEC 	= iter
 
 SRC 	=	main.cpp
 

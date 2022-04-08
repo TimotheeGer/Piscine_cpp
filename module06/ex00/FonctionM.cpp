@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:06:18 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/07 15:29:13 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:54:11 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,26 +121,24 @@ void	Convert::conv_str() {
 
 	this->char_str = "impossible";
 	this->int_str = "impossible";
-	this->float_str = _value + "f";
+	this->float_str = _value;
 	this->double_str = _value;
 	return ;
 }
 
 bool 	Convert::checkIsNanOrInf() {
 
-	if (this->_value.compare("nan") == 0 || this->_value.compare("nanf") == 0)
+	if (this->_value.compare("nan") == 0 || this->_value.compare("-inf") == 0 || this->_value.compare("+inf") == 0)
 	{
 		this->conv_str();
+		this->float_str = _value + "f";
 		return true;
 	}
-	if (this->_value.compare("+inf") == 0 || this->_value.compare("+inff") == 0)
+	if (this->_value.compare("nanf") == 0 || this->_value.compare("-inff") == 0 || this->_value.compare("+inff") == 0)
 	{
 		this->conv_str();
-		return true;
-	}
-	if (this->_value.compare("-inf") == 0 || this->_value.compare("-inff") == 0)
-	{
-		this->conv_str();
+		_value.erase(_value.end() - 1);
+		this->double_str = _value;
 		return true;
 	}
 	return false;
@@ -158,9 +156,7 @@ void Convert::checkWhichConvert() {
 		return ;
 	}
 	if (checkIsNanOrInf())
-	{
 		printPseudo();
-	}
 	else
 	{
 		if (ValueConvertor())

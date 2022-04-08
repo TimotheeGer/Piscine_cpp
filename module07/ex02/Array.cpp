@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Array.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 14:02:06 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/08 14:46:43 by tigerber         ###   ########.fr       */
+/*   Created: 2022/04/08 18:09:34 by tigerber          #+#    #+#             */
+/*   Updated: 2022/04/08 18:11:39 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap {
+#include "Array.hpp"
 
-	public: 
 
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const &src);
-		~ScavTrap(void);
 
-		ScavTrap &operator=(ScavTrap const &rhs);
-		
-		void attack(const std::string &target);
-		void guardGate(void);		
-	
-	private:
-		
-};
+template <typename T>
+Array<T>::Array( Array const &src ) {
+
+	*this = src;
+}
+
+template <typename T>
+Array<T> &operator=( Array const &rhs ) {
+
+	this->_n = rhs._n;
+	this->_tab = rhs._tab;
+}
+
+#endif
