@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.cpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 18:09:34 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/08 18:11:39 by tigerber         ###   ########.fr       */
+/*   Created: 2022/04/11 15:43:17 by tigerber          #+#    #+#             */
+/*   Updated: 2022/04/11 15:43:18 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
-#include "Array.hpp"
-
-
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <map>
+#include <iterator>
+#include <list>
 
 template <typename T>
-Array<T>::Array( Array const &src ) {
 
-	*this = src;
+typename T::iterator Easyfind( T a, int b ) {
+
+	return std::find(a.begin(), a.end(), b);
 }
 
-template <typename T>
-Array<T> &operator=( Array const &rhs ) {
-
-	this->_n = rhs._n;
-	this->_tab = rhs._tab;
-}
 
 #endif
