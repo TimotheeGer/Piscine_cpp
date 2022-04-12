@@ -53,7 +53,8 @@ int Span::shortestSpan( void ) {
 
 int Span::randomNumber( void ) {
 
-	return (std::rand() % this->_n);
+	srand (time(NULL));
+	return (std::rand());
 }
 
 void Span::addRandomNumber(void) {

@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 18:09:41 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/11 15:30:19 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:04:26 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Array {
 
 	public :
 		
-		Array( void ) : _n(0), _tab(new T[0]) { };
+		Array( void ) : _n(0), _tab(new T[0]()) { };
 		
-		Array( unsigned int n ) : _n(n), _tab(new T[n]) { };
+		Array( unsigned int n ) : _n(n), _tab(new T[n]()) { };
 		
 		Array( Array const &src ) { 
 			

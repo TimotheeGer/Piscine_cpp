@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:43:17 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/11 15:43:18 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:04:50 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 
 template <typename T>
 
-typename T::iterator Easyfind( T a, int b ) {
+typename T::iterator easyfind(T &a, int b) {
 
 	return std::find(a.begin(), a.end(), b);
 }
-
 
 #endif
