@@ -6,7 +6,7 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/04/11 15:44:37 by tigerber         ###   ########.fr        #
+#    Updated: 2022/04/13 15:06:04 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CXXFLAGS 	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 EXEC 	= span
 
-SRC 	=	main.cpp
+SRC 	=	main.cpp \
+			Span.cpp
 
 OBJ		= $(SRC:.cpp=.o)
 

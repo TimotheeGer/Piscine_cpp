@@ -1,31 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/13 15:04:35 by tigerber          #+#    #+#             */
+/*   Updated: 2022/04/13 18:46:52 by tigerber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
-Span::Span( unsigned int n ) : _n(n) {
+// ************************************************************************** //
+//                               Constructor                             	  //
+// ************************************************************************** //
 
-	return ;
-}
+Span::Span ( void ) { }
 
-Span::Span( Span const &src ) {
+Span::Span( unsigned int n ) : _n(n) { }
 
-	*this = src;
-	return ;
-}
+Span::Span( Span const &src ) { *this = src; }
 
-Span::~Span ( void ) {
+Span::~Span ( void ) { }
 
-	return ;
-}
+// ************************************************************************** //
+//                               Surcharge Operateur                          //
+// ************************************************************************** //
 
 Span &Span::operator=( Span const &rhs ) {
 
-
+	this->_n = rhs._n;
+	this->vec = rhs.vec;
 	return *this;
 }
+
+// ************************************************************************** //
+//                               Fontion Membre                            	  //
+// ************************************************************************** //
 
 void Span::addNumber( int num ) {
 
 	if (vec.size() == _n)
-		throw Span::notFound();
+		throw Span::notAdd();
 	vec.push_back(num);
 	return ;
 }
@@ -34,47 +51,83 @@ int Span::shortestSpan( void ) {
 
 	std::vector<int> tmp = vec;
 	if (vec.size() == 0 || vec.size() == 1)
-		throw Span::notFound();
-	sort(tmp.begin(), tmp.end());
+		throw Span::notInterval();
 
+	sort(tmp.begin(), tmp.end());
+	
 	std::vector<int>::const_iterator itb = tmp.begin();
 	std::vector<int>::const_iterator ite = tmp.end();
+	std::vector<int>::const_iterator itn = ++tmp.begin();
 
-	int small = *itb - (*itb + 1);
-
-	while (itb != ite)
+	int small = *itn - *itb;
+		
+	while (itb != ite && itn != ite)
 	{
-		if (*itb - (*itb + 1) < small)
-			small = *itb - (*itb + 1);
+		if (*itn - *itb < small)
+			small = *itn - *itb;			
 		itb++;
+		itn++;
 	}
+	if (small == 0)
+		throw Span::notInterval();
 	return small;
 }
 
-int Span::randomNumber( void ) {
 
-	srand (time(NULL));
-	return (std::rand());
+int Span::longestSpan( void ) {
+
+	std::vector<int> tmp = vec;
+
+	if (vec.size() == 0 || vec.size() == 1)
+		throw Span::notInterval();
+	
+	sort(tmp.begin(), tmp.end());
+
+	std::vector<int>::const_iterator itb = tmp.begin();
+	std::vector<int>::const_iterator ite = --tmp.end();
+
+	if (*ite - *itb == 0)
+		throw Span::notInterval();
+	return (*ite - *itb);
 }
 
 void Span::addRandomNumber(void) {
 
+	int size = vec.size();
+	if (vec.size() == _n)
+		throw Span::notAdd();
+	srand (time(NULL));
+	
 	vec.resize(_n);
-	std::generate(vec.begin(), vec.end(), randomNumber);
+	std::vector<int>::iterator ite = vec.begin();
+	std::advance(ite, size);	
+	std::generate(ite, vec.end(), std::rand);
 }
 
-int Span::longestSpan( void ) {
+void Span::printSpan(void) {
+	
+	std::cout << "-------------------------------------------------------------- Span --------------------------------------------------------------";
+	for (unsigned long i = 0; i < vec.size(); i++)
+	{
+		if (i % 10 == 0)
+			std::cout << std::endl;
+		std::cout << "[ " << vec[i] << " ]"; 	
+	}
+	std::cout << std::endl;
+	std::cout << "----------------------------------------------------------------------------------------------------------------------------------" << std::endl;
+	return ;
+}
 
-	int big;
+// ************************************************************************** //
+//                               Exception                              	  //
+// ************************************************************************** //
 
-	std::vector<int> tmp = vec;
-	if (vec.size() == 0 || vec.size() == 1)
-		throw Span::notFound();
-	sort(tmp.begin(), tmp.end());
+const char *Span::notAdd::what() const throw() {
 
-	std::vector<int>::const_iterator itb = tmp.begin();
-	std::vector<int>::const_iterator ite = tmp.end();
+	return ("Span is full error add number");
+}
 
-	big = *itb - *ite;
-	return big;
+const char *Span::notInterval::what() const throw() {
+
+	return ("No interval in span");
 }
